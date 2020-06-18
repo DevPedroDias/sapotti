@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -43,6 +43,7 @@ class User extends Authenticatable implements JWTSubject
      *  Table
      */
     protected $table = 'sptt_users';
+    
 
       // Rest omitted for brevity
     public $timestamps = false;

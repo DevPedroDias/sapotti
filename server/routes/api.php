@@ -14,15 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-Route::post('/user/login', 'Users\AuthController@login');
 
 Route::group(['middleware' => ['apiJwt']], function () {
-    Route::post('/user/create', 'Users\UserController@create');
-    Route::put('/user/update/{id}', 'Users\UserController@update');
-    Route::put('/user/delete/{id}', 'Users\UserController@delete');
+    Route::group(['prefix' => 'user'], function () {
+        Route::post('/login', 'Users\AuthController@login');
+        Route::post('/create', 'Users\UserController@create');
+        Route::put('/update/{id}', 'Users\UserController@update');
+        Route::put('/delete/{id}', 'Users\UserController@delete');
+        Route::get('/', 'Users\UserController@list');
+        Route::get('/{id}', 'Users\UserController@getUser');
+    });
+    Route::group(['prefix' => 'category'], function () {
+        
+    });
 });
-
