@@ -1,8 +1,7 @@
 import React from 'react'
 import api from '../../services/api'
 import { login } from '../../services/auth'
-import './index.css'
-
+import { FullW } from '../../styledComponents/Components'
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
@@ -27,18 +26,10 @@ export default class Login extends React.Component {
     }
   }
 
+
   render() {
     return (
-      <div id="login" style={{
-        margin: 0,
-        padding: 0,
-        width: "100vw",
-        height: "100vh",
-        maxWidth: "100vw",
-        maxHeight: "100vh",
-        backgroundColor: "#FF00FF",
-        overflow: "auto"
-      }}>
+      <FullW>
         <h1 style={{
           color: "#fff",
           fontSize: "7em"
@@ -59,18 +50,39 @@ export default class Login extends React.Component {
             borderRadius: "3px"
           }}>
             <form style={{
-              marginTop:"15%",
-              width:"100%",
-              height:"100%"
+              marginTop: "15%",
+              width: "100%",
+              height: "100%",
+              display:"flex",
+              flexDirection:"column",
+              alignItems:"center",
             }}>
-              <input type="text" placeholder="E-mail" style={{
-                width:"80%",
-                height:"6%"
-              }} />
+              <div style={{
+                 width: "90%",
+                 height: "7%",
+                 marginBottom:"8%"
+              }}>
+                <input type="text" placeholder="E-mail" style={{
+                  width: "100%",
+                  height: "100%"
+                }} />
+              </div>
+              <div style={{
+                 width: "90%",
+                 height: "7%",
+                 marginBottom:"2%"
+              }}>
+                <input type="password" placeholder="Password" style={{
+                  width: "100%",
+                  height: "100%"
+                }} />
+              </div>
+
+
             </form>
           </div>
         </div>
-      </div>
+      </FullW>
     )
   }
 }
